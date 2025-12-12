@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | The Apex Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* --- 1. Global Variables & Reset (Must match index.html) --- */
+        :root {
+            --color-primary: #1e3a8a; /* Deep Indigo/Blue */
+            --color-secondary: #3b82f6; /* Lighter Blue Accent */
+            --color-dark: #1f2937; /* Dark text */
+            --color-light: #f9fafb; /* Off-White background */
+            --color-white: #ffffff;
+            --font-main: 'Inter', sans-serif;
+            --radius-default: 8px;
+            --transition-speed: 0.3s;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-dark);
+            line-height: 1.6;
+            background-color: var(--color-light);
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--color-dark);
+        }
+
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #6b7280;
+            margin-bottom: 40px;
+        }
+        
+        /* Navigation Bar (Copied from Apex Landing Page) */
+        .navbar {
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .nav-links a {
+            color: var(--color-dark);
+            text-decoration: none;
+            font-weight: 600;
+            margin-left: 30px;
+            transition: color var(--transition-speed);
+        }
+        
+        .nav-links a:hover {
+            color: var(--color-secondary);
+        }
+
+        /* --- 2. Hero Header for About Page --- */
+        .about-hero {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 80px 0;
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* --- 3. Mission & Story Section --- */
+        .mission-section {
+            display: flex;
+            justify-content: space-around;
+            gap: 40px;
+            text-align: left;
+            margin-top: 40px;
+        }
+        
+        .mission-section div {
+            flex: 1;
+            padding: 20px;
+            border-left: 4px solid var(--color-secondary);
+        }
+
+        .mission-section h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+        }
+
+        /* --- 4. Team Section --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member-card {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: var(--radius-default);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-member-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--color-secondary);
+        }
+
+        .team-member-card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--color-primary);
+        }
+        
+        .team-member-card p {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+        
+        /* Footer (Copied from Apex Landing Page) */
+        .footer {
+            padding: 30px 0;
+            background-color: var(--color-dark);
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo"><a href="index.html" style="text-decoration: none;">**APEX** Digital</a></div>
+            <nav class="nav-links">
+                <a href="index.html#features">Features</a>
+                <a href="about.html">About Us</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <section class="about-hero">
+        <div class="container">
+            <h1>Providin info, all at the same place</h1>
+            <p>We are a dedicated team driven by the belief that technology should be elegant, accessible, and revolutionary.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2>Our Story & Vision</h2>
+            <p class="subtitle">Where we came from and where we are going.</p>
+            
+            <div class="mission-section">
+                <div>
+                    <h3>Our Mission</h3>
+                    <p>To provide information regarding weather, location and tools for the help of students.</p>
+                </div>
+                <div>
+                    <h3>The Beginning</h3>
+                    <p>The Apex Project started during  hackathon in Valmiki when we realized there are various problems that are needed to be solved for the sake of students..</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background-color: var(--color-white);">
+        <div class="container">
+            <h2>Meet the Core Team</h2>
+            <p class="subtitle">The passionate minds driving the Apex project forward.</p>
+            
+            <div class="team-grid">
+                <div class="team-member-card">
+                    <img src="placeholder-man.jpg" alt="Team Member 1">
+                    <h4>Pradip Kumar Chaudary.</h4>
+                    <p>Lead Backend designer</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">Deep expertise in scalable cloud infrastructure and data processing.</p>
+                </div>
+                <div class="team-member-card">
+                    <img src="placeholder-woman.jpg" alt="Team Member 2">
+                    <h4>Biswas Timalsena</h4>
+                    <p>Front end Designer & UX Lead</p>
+                    <p style="font-size: 0.85rem; margin-top: 10px;">Focuses on human-centered design principles for flawless usability.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Apex Digital Solutions. | All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

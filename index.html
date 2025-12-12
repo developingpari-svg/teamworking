@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Project: Modern Digital Solution</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        
+    /* --- 1. Global Variables & Reset --- */
+    :root {
+        --color-primary: #1e3a8a; /* Deep Indigo/Blue */
+        --color-secondary: #3b82f6; /* Lighter Blue Accent */
+        --color-dark: #1f2937; /* Dark text */
+        --color-light: #f9fafb; /* Off-White background */
+        --color-white: #ffffff;
+        --font-main: 'Inter', sans-serif;
+        --radius-default: 8px;
+        --transition-speed: 0.3s;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: var(--font-main);
+        color: var(--color-dark);
+        line-height: 1.6;
+        background-color: var(--color-light);
+        scroll-behavior: smooth;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .section {
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    /* --- CTA Button Hover (Subtle Glow and Lift) --- */
+    .cta-button {
+        display: inline-block;
+        padding: 12px 30px;
+        background-color: var(--color-secondary);
+        color: var(--color-white);
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 30px;
+        /* Added transition for smoother effects */
+        transition: all var(--transition-speed) ease-out;
+        box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+    }
+
+    .cta-button:hover {
+        background-color: #2563eb;
+        transform: translateY(-4px) scale(1.02); /* Stronger lift and slight scale */
+        /* Glow Effect: Stronger, more dispersed shadow */
+        box-shadow: 0 0 5px var(--color-secondary), 0 8px 20px rgba(59, 130, 246, 0.8); 
+    }
+
+    /* --- 2. Navigation Bar (Navs) --- */
+    .navbar {
+        background-color: var(--color-white);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--color-primary);
+        transition: transform var(--transition-speed); /* Transition added */
+    }
+    
+    .logo:hover {
+        transform: scale(1.05); /* Logo subtly grows */
+    }
+    
+    /* --- 3. Menu Links & Hover Dropdown Styling --- */
+    .nav-links {
+        display: flex; /* Ensure links stay in a row */
+        align-items: center;
+    }
+
+    .nav-item {
+        position: relative; /* Container for the dropdown */
+        margin-left: 30px;
+        padding: 5px 0; /* Padding for hover area */
+    }
+
+    .nav-item > a {
+        color: var(--color-dark);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color var(--transition-speed);
+        display: block;
+    }
+
+    /* Added underline effect on hover */
+    .nav-item > a:hover {
+        /* Keep color the same, add subtle border/shadow */
+        border-bottom: 2px solid var(--color-secondary);
+        padding-bottom: 3px;
+    }
+
+    /* Dropdown/Flyout Styling (No change here, looks good) */
+    .feature-dropdown {
+        position: absolute;
+        top: 100%;
+        left: -50px;
+        min-width: 280px;
+        background-color: var(--color-white);
+        border-radius: var(--radius-default);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        padding: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity var(--transition-speed), transform var(--transition-speed), visibility var(--transition-speed);
+        text-align: left;
+        border-top: 3px solid var(--color-secondary);
+    }
+    
+    /* Hover State: Show the dropdown */
+    .nav-item:hover .feature-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    /* Dropdown List Item Styling */
+    .dropdown-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 10px;
+        border-radius: 4px;
+        text-decoration: none;
+        color: var(--color-dark);
+        transition: background-color var(--transition-speed);
+    }
+
+    .dropdown-item:hover {
+        background-color: var(--color-light);
+    }
+
+    .dropdown-item i {
+        font-size: 1.2rem;
+        color: var(--color-primary);
+        margin-right: 15px;
+        margin-top: 3px;
+        transition: color var(--transition-speed);
+    }
+
+    .dropdown-content h4 {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--color-primary);
+    }
+
+    .dropdown-content p {
+        margin: 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+        line-height: 1.3;
+    }
+
+    /* --- Feature Card Hover (Glow & Inner Border) --- */
+    .feature-card { 
+        background-color: var(--color-white); 
+        padding: 30px; 
+        border-radius: var(--radius-default); 
+        /* Added subtle inner border for a cleaner look */
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); 
+        text-align: left; 
+        /* Added transition to all properties */
+        transition: all var(--transition-speed) ease; 
+        border-left: 4px solid var(--color-primary); 
+    }
+    
+    .feature-card:hover {
+        transform: translateY(-8px); 
+        /* Intense Glow Effect matching brand primary color */
+        box-shadow: 0 0 15px rgba(30, 58, 138, 0.3), 0 15px 30px rgba(0, 0, 0, 0.15); 
+        
+        /* Highlight the left border with the secondary color */
+        border-left: 4px solid var(--color-secondary); 
+    }
+    
+    /* Make the feature icon glow on hover */
+    .feature-card:hover i {
+        text-shadow: 0 0 8px rgba(59, 130, 246, 0.8);
+    }
+
+
+    /* --- Testimonial Card Hover (Deep Shadow) --- */
+    .testimonial-card {
+        padding: 40px;
+        background-color: var(--color-white);
+        border-radius: var(--radius-default);
+        max-width: 800px;
+        margin: 0 auto;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: all var(--transition-speed) ease;
+    }
+    
+    .testimonial-card:hover {
+        /* Subtle lift and stronger shadow */
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+    }
+
+
+    /* --- Other Sections (Hero, etc.) --- */
+    .hero-section { padding: 100px 0; text-align: left; background: linear-gradient(135deg, var(--color-light) 0%, var(--color-white) 100%); }
+    .hero-layout { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .hero-text h1 { font-size: 3.5rem; font-weight: 700; line-height: 1.1; margin-bottom: 20px; color: var(--color-primary); }
+    .hero-visual { min-width: 50%; height: 400px; background-color: #d1d5db; border-radius: var(--radius-default); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
+    .section h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--color-dark); }
+    .subtitle { font-size: 1.1rem; color: #6b7280; margin-bottom: 40px; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px; }
+    
+    /* Footer */
+    .footer {
+        padding: 30px 0;
+        background-color: var(--color-dark);
+        color: #9ca3af;
+        font-size: 0.9rem;
+    }
+</style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">APEX Digital</div>
+            <nav class="nav-links">
+                
+                <div class="nav-item">
+                    <a href="#features">Features <i class="fas fa-chevron-down" style="font-size: 0.7em; margin-left: 5px;"></i></a>
+                    
+                    <div class="feature-dropdown">
+                        <a href="#speed-feature" class="dropdown-item">
+                            <i class="fas fa-bolt"></i>
+                            <div class="dropdown-content">
+                                <h4>Unrivaled Speed</h4>
+                                <p>Execute tasks with near-zero latency.</p>
+                            </div>
+                        </a>
+                        <a href="#security-feature" class="dropdown-item">
+                            <i class="fas fa-lock"></i>
+                            <div class="dropdown-content">
+                                <h4>Data Security</h4>
+                                <p>Military-grade encryption and compliance.</p>
+                            </div>
+                        </a>
+                        <a href="#custom-feature" class="dropdown-item">
+                            <i class="fas fa-cogs"></i>
+                            <div class="dropdown-content">
+                                <h4>API & Integration</h4>
+                                <p>Connect seamlessly with your existing stack.</p>
+                            </div>
+                        </a>
+                        <a href="#support-feature" class="dropdown-item">
+                            <i class="fas fa-headset"></i>
+                            <div class="dropdown-content">
+                                <h4>24/7 Support</h4>
+                                <p>Dedicated assistance for enterprise clients.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="nav-item"><a href="about.html">About Us</a></div>
+                </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="container hero-layout">
+            <div class="hero-text">
+                <h1>The Future of students is Here.</h1>
+                <p>Integrate powerful API and robust data analytics to achieve unparalleled clarity and growth.</p>
+                <a href="#features" class="cta-button">**View Key Features**</a>
+            </div>
+            <div class="hero-visual"></div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2>Core Features Built For You</h2>
+            <p class="subtitle">Focus on what matters.</p>
+            
+            <div class="features-grid">
+                <div id="speed-feature" class="feature-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Take a test</h3>
+                    <p>Execute complex tasks in milliseconds, reducing bottlenecks and increasing time-to-value.</p>
+                </div>
+                <div id="security-feature" class="feature-card">
+                    <i class="fas fa-lock"></i>
+                    <h3>Check the weather</h3>
+                    <p>Protect your assets with military-grade encryption and certified compliance protocols.</p>
+                </div>
+                <div id="custom-feature" class="feature-card">
+                    <i class="fas fa-cogs"></i>
+                    <h3>See your schedule</h3>
+                    <p>Tailor every part of the platform to fit your unique business logic without writing code.</p>
+                </div>
+                <div id="support-feature" class="feature-card">
+                    <i class="fas fa-headset"></i>
+                    <h3>See Your Results</h3>
+                    <p>Access our team of experts 24/7 for mission-critical assistance and guidance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonial-section section"><div class="container"><div class="testimonial-card"><blockquote>"Switching to Apex was the best strategic decision."</blockquote><cite>— Sarah L., Chief Innovation Officer</cite></div></div></section>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Apex Digital Solutions. | Privacy | Terms | Contact</p>
+        </div>
+    </footer>
+
+</body>
+</html>
